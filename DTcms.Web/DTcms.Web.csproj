@@ -1180,6 +1180,21 @@
   <ItemGroup>
     <Content Include="tools\verify_code.ashx" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Web.config.copy">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web.config.Debug.copy">
+      <DependentUpon>Web.config.copy</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web.config.Release.copy">
+      <DependentUpon>Web.config.copy</DependentUpon>
+    </None>
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
   <ProjectExtensions>

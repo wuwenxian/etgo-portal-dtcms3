@@ -823,7 +823,25 @@ namespace DTcms.Web.tools
             //写入登录日志
             new BLL.user_login_log().Add(model.id, model.user_name, "会员登录");
             //返回URL
-            context.Response.Write("{\"status\":1, \"msg\":\"会员登录成功！\",\"mobile\":"+model.mobile+",\"username\":\""+model.user_name+"\"}");
+            //string user_name = model.nick_name.Trim().Length > 0 ? model.nick_name : model.user_name;
+            string user_name = model.user_name;
+            int sex = 1;
+            switch (model.sex)
+            {
+                case "男":
+                    sex = 1;
+                    break;
+                case "女":
+                    sex = 0;
+                    break;
+                default:
+                    sex = 1;
+                    break;
+
+            }
+            string avatar = model.avatar;
+            int platId = 1;
+            context.Response.Write("{\"status\":1, \"msg\":\"会员登录成功！\",\"platId\":"+platId+",\"username\":\""+user_name+"\",\"sex\":"+sex+",\"avatar\":\""+avatar+"\"}");
             return;
         }
         #endregion

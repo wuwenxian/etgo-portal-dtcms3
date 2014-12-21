@@ -23,12 +23,13 @@ $(function () {
                 $("#msgtips dd").text("正在登录，请稍候...");
             },
             success: function (data, textStatus) {
-//                                console.log(data);
-//                                return;
+                //                                console.log(data);
+                //                                return;
                 if (data.status == 1) {
-                    var params = "?platId=" + data.mobile + "&nickName=" + data.username + "&sex=0&imageUrl=null";
-                   
-                   
+                    var avatar = data.avatar || null;
+                    var params = "?platId=" + data.platId + "&nickName=" + data.username + "&sex=" + data.sex + "&imageUrl="+avatar;
+
+
                     if (typeof (data.url) == "undefined") {
                         var back_url = $("#turl").val();
                         back_url = back_url.indexOf('gogame.aspx') > -1 ? (back_url + params) : back_url

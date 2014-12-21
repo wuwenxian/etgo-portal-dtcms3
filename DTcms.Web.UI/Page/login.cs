@@ -40,7 +40,24 @@ namespace DTcms.Web.UI.Page
                 //写入登录日志
                 //new BLL.user_login_log().Add(model.id, model.user_name, "自动登录");
                 //自动登录,跳转URL
-                turl += "?platId=" + model.mobile + "&nickName=" + model.user_name + "&sex=0&imageUrl=null";
+                string user_name = model.user_name;
+                int sex = 1;
+                switch (model.sex)
+                {
+                    case "男":
+                        sex = 1;
+                        break;
+                    case "女":
+                        sex = 0;
+                        break;
+                    default:
+                        sex = 1;
+                        break;
+
+                }
+                string avatar = model.avatar!=string.Empty?model.avatar:"null";
+                
+                turl += "?platId=1&nickName=" + user_name + "&sex="+sex+"&imageUrl="+avatar;
                 HttpContext.Current.Response.Redirect(turl);
             }
         }
