@@ -1,0 +1,13 @@
+/* CSS file */
+.AlertTitle
+{ 
+ font-size: 12pt; 
+ font-weight: normal;
+ font-style: normal;
+} 
+.AlertMessage
+{
+ font-size: 12pt;
+ font-weight: normal;
+ font-style: normal;
+}
